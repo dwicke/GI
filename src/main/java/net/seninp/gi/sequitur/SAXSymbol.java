@@ -173,11 +173,13 @@ public abstract class SAXSymbol {
       return false;
     }
 
-    if (!theDigrams.containsKey(this)) {
+    //if (!theDigrams.containsKey(this)) {
+    SAXSymbol found;
+    if ((found = theDigrams.putIfAbsent(this, this))==null) {
       // System.out.println("[sequitur debug] *check...* digrams contain this (" + this.value + "~"
       // + this.n.value + ")? NO. Checking in.");
       // found = theDigrams.put(this, this);
-      theDigrams.put(this, this);
+      //theDigrams.put(this, this);
       // System.out.println(" *** Digrams now: " + makeDigramsTable());
       // System.out.println("[sequitur debug] *digrams* " + hash2String());
       return false;
@@ -187,7 +189,7 @@ public abstract class SAXSymbol {
     // + this.n.value + ")? Yes. Oh-Oh...");
 
     // well the same hash is in the store, lemme see...
-    SAXSymbol found = theDigrams.get(this);
+    //SAXSymbol found = theDigrams.get(this);
 
     // if it's not me, then lets call match magic?
     if (found.n != this) {

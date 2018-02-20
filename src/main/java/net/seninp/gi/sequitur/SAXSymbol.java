@@ -19,6 +19,7 @@ package net.seninp.gi.sequitur;
  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
@@ -40,8 +41,10 @@ public abstract class SAXSymbol {
   private static final int prime = 2265539;
 
   /** Hashtable to keep track of all digrams. This is static - single instance for all. */
-  protected static final Hashtable<SAXSymbol, SAXSymbol> theDigrams = new Hashtable<SAXSymbol, SAXSymbol>(
-      SAXSymbol.prime);
+//  protected static final Hashtable<SAXSymbol, SAXSymbol> theDigrams = new Hashtable<SAXSymbol, SAXSymbol>(
+//      SAXSymbol.prime);
+  protected static final HashMap<SAXSymbol, SAXSymbol> theDigrams = new HashMap<SAXSymbol, SAXSymbol>(
+          SAXSymbol.prime);
 
   public static Hashtable<String, Hashtable<String, Integer>> theSubstituteTable = new Hashtable<String, Hashtable<String, Integer>>(
       SAXSymbol.prime);
